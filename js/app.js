@@ -1,19 +1,26 @@
 $(document).ready(function() {
-	var maxValue = prompt("Enter Maximum Value for FizzBuzz");
 	
-	for (i = 1; i <= maxValue; i++) {
-		var fizzBuzz = "";
-		if (i % 3 == 0) {
-			fizzBuzz = 'Fizz';
-			if (i % 5 == 0) {
-				fizzBuzz += 'Buzz';
-			}
-			$('body').append('<p>' + fizzBuzz + '</p>');
-		} else if (i % 5 == 0) {
-			fizzBuzz = 'Buzz';
-			$('body').append('<p>' + fizzBuzz + '</p>');
-		} else {
-			$('body').append('<p>' + i + '</p>');
+	function fizzbuzz(maxValue) {
+	
+		function check(val) {
+			var msg = '';
+		
+			if (val % 3 == 0) {msg += 'Fizz'};
+			if (val % 5 == 0) {msg += 'Buzz'};
+		
+			return msg || val;
+		}
+	
+		for (i = 1; i <= maxValue; i++) {
+			$('body').append('<p>' + check(i) + '</p>');
 		}
 	}
+	
+	do {
+		if (isNaN(max) && max !== undefined) {alert(max + " is not a number!")};
+		var max = prompt("Enter Maximum Value for FizzBuzz");
+	} while(isNaN(max));
+	
+	fizzbuzz(max);
+	
 });
